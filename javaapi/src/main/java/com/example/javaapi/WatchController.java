@@ -41,6 +41,12 @@ class WatchController {
     return watchRepository.save(watch);
   }
 
+
+  
+  // @PostMapping("/checkout")
+  // String singleWatchIdUsedToCalculateTotalPrice(@Validated @RequestBody Long watchIds) {
+
+
   @PostMapping("/checkout")
   String listOfWatchIdsUsedToCalculateTotalPrice(@Validated @RequestBody List<Long> watchIds) {
     int totalPrice = 0;
