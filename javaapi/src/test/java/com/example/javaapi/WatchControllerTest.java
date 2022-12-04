@@ -22,24 +22,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @RunWith(SpringRunner.class)
-// @SpringBootTest(
-//     webEnvironment = SpringBootTest.WebEnvironment.MOCK,
-//     classes = JavaapiApplication.class)
-// @AutoConfigureMockMvc
-// @TestPropertySource(
-//     locations = "classpath:application-integrationtest.properties"
-// )
 @SpringBootTest
+@AutoConfigureMockMvc
 public class WatchControllerTest {
 
     @Autowired
     private WatchController watchController;
 
+    @Autowired
+	private MockMvc mockMvc;
+
     @Test
     public void contextLoads()
     throws Exception {
         assertThat(watchController).isNotNull();
+        assertThat(mockMvc).isNotNull();
     }
 
+    @Test
+    public void testReturnAllWatches()
+    throws Exception {
+        mockMvc.perform(get("/watch"))
+            .andExpect(status().isOk())
+            .andExpect(content()
+            .contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
+    }   
 }
 
