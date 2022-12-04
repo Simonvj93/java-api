@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
 public class WatchTest {
-    // test Watch.java
 
     @Test
     public void testCreationOfWatch() {

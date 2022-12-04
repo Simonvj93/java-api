@@ -2,7 +2,6 @@ package com.example.javaapi;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.*;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,12 +40,7 @@ class WatchController {
     return watchRepository.save(watch);
   }
 
-
   
-  // @PostMapping("/checkout")
-  // String singleWatchIdUsedToCalculateTotalPrice(@Validated @RequestBody Long watchIds) {
-
-
   @PostMapping("/checkout")
   String listOfWatchIdsUsedToCalculateTotalPrice(@Validated @RequestBody List<Long> watchIds) {
     int totalPrice = 0;
