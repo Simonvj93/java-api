@@ -7,13 +7,14 @@ class Watch {
     @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
     private long id;
     private String name;
-    private int price;
+    private Integer price;
 
     Watch() {
     }
 
     Watch(String name, Integer price) {
         this.name = name;
+        this.price = price;
     }
 
     public long getId() {
